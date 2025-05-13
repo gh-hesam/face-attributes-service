@@ -2,3 +2,10 @@ saved_data
 *.pt
 *.jpg
 logs
+./logs
+logs/
+*.log
+*/[Ll]ogs/*
+logs/*.log
+./logs/*
+
