@@ -113,9 +113,9 @@ Each .json file looks like:
     }
 ```
 # Results
-![plot](./images/1.png.png)
-![plot]](./images/2.png.png)
-![plot](./images/3.png.png)
+![test image #1](images/1.png.png)
+![test image #2](images/2.png.png)
+![test image #3](images/3.png.png)
 # TODO
 - [ ] dockerize the project
 - [ ] add result plotter service
