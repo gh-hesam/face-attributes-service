@@ -10,6 +10,7 @@ A modular microservice-based system that processes uploaded images to:
 
 ---
 
+
 ##  What This Project Does
 
 This project takes in a raw image, processes it through multiple intelligent services, and outputs a structured `.json` file and the annotated image. For **each detected face**, it provides:
@@ -52,6 +53,7 @@ This system is built as a set of **microservices**, each responsible for a speci
 
 ## 🚀 How to Run and Use
 
+## first choice: instal and run manually
 ### 1. 📦 Install Requirements
 
 ```bash
@@ -59,11 +61,11 @@ pip install -r requirements.txt
 ```
 Ensure the following are set up:
 ```bash
-    Python 3.8+
+Python 3.8+
 
-    Redis server running locally
+Redis server running locally
 
-    YOLOv8 model file available as model.pt in your working directory
+YOLOv8 model file available as model.pt in your working directory
 
 ```
 3. 📤 Upload an Image
@@ -75,6 +77,20 @@ Use the input service (or write a small uploader script) to push an image into R
 * Merge all data
 * Save saved_data/<image_hash>.jpg and saved_data/<image_hash>.json
 
+## second choise: ready to use bash scripts
+### 1. Give it execute permission:
+```bash 
+chmod +x run.sh
+```
+### 2.run it 
+```bash 
+./run_everything.sh
+```
+and for stop the services:
+```bash 
+chmod +x stop_services.sh
+./stop_services.sh
+```
 
 ## Output Format
 
