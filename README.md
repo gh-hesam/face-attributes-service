@@ -118,5 +118,5 @@ Each .json file looks like:
 ![test image #3](images/3.png)
 # TODO
 - [ ] dockerize the project
-- [ ] add result plotter service
+- [X] add result plotter service
 - [ ] Replace DeepFace with a more accurate age/gender model
