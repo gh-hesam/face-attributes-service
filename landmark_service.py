@@ -9,8 +9,9 @@ import json
 import grpc
 from datetime import datetime
 
-import aggregator_pb2
-import aggregator_pb2_grpc
+from utils import aggregator_pb2
+from utils import aggregator_pb2_grpc
+from utils import logger
 
 # Config
 REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379")
@@ -42,12 +43,15 @@ def send_to_storage(image_bytes, redis_key, metadata_dict):
                 redis_key=redis_key
             )
             response = stub.SaveFaceAttributes(request)
-            print(" Landmark  status :", response.response)
+            if response.response:
+                logger.log_info(f"[LANDMARK] Data sent to storage for key {redis_key}")
+            else:
+                logger.log_warning(f"[LANDMARK] Storage service responded with failure for key {redis_key}")
     except Exception as e:
-        print(f"failed to send to storage: {e}")
+        logger.log_error(f"[LANDMARK] Failed to send to storage: {e}")
 
 def main_loop():
-    print("landmark detection dervice started")
+    logger.log_info("[LANDMARK] Landmark Detection Service started")
     while True:
         try:
             key = r.rpop("task:landmark")
@@ -56,8 +60,10 @@ def main_loop():
                 continue
 
             key = key.decode()
+            logger.log_info(f"[LANDMARK] Processing image with hash: {key}")
             image_bytes = r.get(f"image:{key}")
             if not image_bytes:
+                logger.log_warning(f"[LANDMARK] Image not found in Redis for key: {key}")
                 continue
 
             image_np = np.frombuffer(image_bytes, np.uint8)
@@ -69,8 +75,12 @@ def main_loop():
                 face_crop = image[y1:y2, x1:x2]
                 landmarks = get_landmarks(face_crop)
                 if not landmarks:
+                    logger.log_warning(f"[LANDMARK] No landmarks found for face {idx} in image {key}")
                     continue
-                abs_landmarks = [{"x": int(lm.x * (x2 - x1) + x1), "y": int(lm.y * (y2 - y1) + y1)} for lm in landmarks]
+                abs_landmarks = [
+                    {"x": int(lm.x * (x2 - x1) + x1), "y": int(lm.y * (y2 - y1) + y1)}
+                    for lm in landmarks
+                ]
                 all_faces_data.append({
                     "face_index": idx,
                     "box": {"x1": int(x1), "y1": int(y1), "x2": int(x2), "y2": int(y2)},
@@ -78,7 +88,7 @@ def main_loop():
                 })
 
             if not all_faces_data:
-                print(f"no faces with landmarks found in {key}")
+                logger.log_warning(f"[LANDMARK] No faces with landmarks found in image {key}")
                 continue
 
             redis_key = f"combined:{key}:landmarks"
@@ -87,10 +97,13 @@ def main_loop():
                 "faces": all_faces_data
             }
 
+            logger.log_info(f"[LANDMARK] Found {len(all_faces_data)} face(s) in image {key}")
             send_to_storage(image_bytes, redis_key, metadata)
             r.delete(f"image:{key}")
+            logger.log_info(f"[LANDMARK] Deleted image:{key} from Redis after processing")
+
         except Exception as e:
-            print(f"lndmark error: {e}")
+            logger.log_error(f"[LANDMARK] Unexpected error: {e}")
             time.sleep(1)
 
 if __name__ == "__main__":

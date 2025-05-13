@@ -1,0 +1,52 @@
+2025-05-13 10:00:00,077 [INFO] HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-05-13 10:00:00,193 [INFO] HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-05-13 10:00:00,216 [INFO] HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-05-13 10:00:00,615 [INFO] HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-05-13 10:00:00,774 [INFO] HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-05-13 10:00:01,193 [INFO] HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-05-13 10:14:41,118 [INFO] [LANDMARK] Landmark Detection Service started
+2025-05-13 10:15:43,692 [INFO] [AGEGEN] Age/Gender Detection Service started...
+2025-05-13 10:15:53,221 [INFO] HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-05-13 10:15:53,235 [INFO] HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-05-13 10:15:53,526 [INFO] HTTP Request: GET https://api.gradio.app/gradio-messaging/en "HTTP/1.1 200 OK"
+2025-05-13 10:15:53,660 [INFO] HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-05-13 10:15:53,939 [INFO] HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-05-13 10:15:54,254 [INFO] HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-05-13 10:16:00,537 [INFO] [UPLOAD] Image uploaded — hash: 2542ebcda882eb67b51f5fed1d18c601, redis_key: image:2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:16:00,537 [INFO] [AGEGEN] Received task for 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:16:00,805 [INFO] [LANDMARK] Processing image with hash: 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:16:02,318 [INFO] [AGEGEN] Detected 3 face(s) for image 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:16:03,180 [INFO] [LANDMARK] Found 3 face(s) in image 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:16:03,206 [INFO] [LANDMARK] Data sent to storage for key combined:2542ebcda882eb67b51f5fed1d18c601:landmarks
+2025-05-13 10:16:03,213 [INFO] [LANDMARK] Deleted image:2542ebcda882eb67b51f5fed1d18c601 from Redis after processing
+2025-05-13 10:16:06,481 [INFO] [AGEGEN] Face 0 — age: 31, gender: man (image: 2542ebcda882eb67b51f5fed1d18c601)
+2025-05-13 10:16:06,943 [INFO] [AGEGEN] Face 1 — age: 27, gender: woman (image: 2542ebcda882eb67b51f5fed1d18c601)
+2025-05-13 10:16:07,418 [INFO] [AGEGEN] Face 2 — age: 30, gender: man (image: 2542ebcda882eb67b51f5fed1d18c601)
+2025-05-13 10:16:07,418 [INFO] [AGEGEN] Processed image 2542ebcda882eb67b51f5fed1d18c601 in 6.88s
+2025-05-13 10:16:07,437 [INFO] [AGEGEN] Sent to storage for key combined:2542ebcda882eb67b51f5fed1d18c601:agegender
+2025-05-13 10:19:40,031 [INFO] [LANDMARK] Landmark Detection Service started
+2025-05-13 10:21:34,346 [INFO] HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+2025-05-13 10:21:34,360 [INFO] HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+2025-05-13 10:21:34,735 [INFO] HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-05-13 10:21:34,940 [INFO] HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+2025-05-13 10:21:35,504 [INFO] HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+2025-05-13 10:21:37,450 [INFO] [STORAGE] Storage Service running on port 50051
+2025-05-13 10:21:37,711 [INFO] [LANDMARK] Landmark Detection Service started
+2025-05-13 10:21:39,774 [INFO] [AGEGEN] Age/Gender Detection Service started...
+2025-05-13 10:21:47,184 [INFO] [UPLOAD] Image uploaded — hash: 2542ebcda882eb67b51f5fed1d18c601, redis_key: image:2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:21:47,184 [INFO] [AGEGEN] Received task for 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:21:47,231 [INFO] [LANDMARK] Processing image with hash: 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:21:48,275 [INFO] [AGEGEN] Detected 3 face(s) for image 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:21:48,675 [INFO] [LANDMARK] Found 3 face(s) in image 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:21:48,711 [INFO] [STORAGE] Received landmarks data for image 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:21:48,711 [INFO] [STORAGE] Only one part available for image 2542ebcda882eb67b51f5fed1d18c601 — waiting...
+2025-05-13 10:21:48,712 [INFO] [LANDMARK] Data sent to storage for key combined:2542ebcda882eb67b51f5fed1d18c601:landmarks
+2025-05-13 10:21:48,755 [INFO] [LANDMARK] Deleted image:2542ebcda882eb67b51f5fed1d18c601 from Redis after processing
+2025-05-13 10:21:52,054 [INFO] [AGEGEN] Face 0 — age: 31, gender: man (image: 2542ebcda882eb67b51f5fed1d18c601)
+2025-05-13 10:21:52,533 [INFO] [AGEGEN] Face 1 — age: 27, gender: woman (image: 2542ebcda882eb67b51f5fed1d18c601)
+2025-05-13 10:21:53,106 [INFO] [AGEGEN] Face 2 — age: 30, gender: man (image: 2542ebcda882eb67b51f5fed1d18c601)
+2025-05-13 10:21:53,106 [INFO] [AGEGEN] Processed image 2542ebcda882eb67b51f5fed1d18c601 in 5.92s
+2025-05-13 10:21:53,117 [INFO] [STORAGE] Received agegender data for image 2542ebcda882eb67b51f5fed1d18c601
+2025-05-13 10:21:53,133 [INFO] [STORAGE] Merged data for image 2542ebcda882eb67b51f5fed1d18c601 saved to saved_data/2542ebcda882eb67b51f5fed1d18c601.json
+2025-05-13 10:21:53,134 [INFO] [AGEGEN] Sent to storage for key combined:2542ebcda882eb67b51f5fed1d18c601:agegender
+2025-05-13 10:21:53,138 [INFO] [AGEGEN] Deleted image:2542ebcda882eb67b51f5fed1d18c601 from Redis after processing

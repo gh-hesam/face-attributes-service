@@ -6,7 +6,7 @@ import time
 
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")
 REDIS_PORT = int(os.getenv("REDIS_PORT", 6379))
-
+from utils.logger import log_info
 r = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, db=0)
 
 def get_image_hash(image_bytes):
@@ -27,7 +27,7 @@ def upload_image(image):
     r.lpush("task:landmark", image_hash) 
     r.lpush("task:agegender", image_hash)
 
-    print(f"resicved  key: {image_hash}")
+    log_info(f"[UPLOAD] Image uploaded — hash: {image_hash}, redis_key: image:{image_hash}")
     return f"sent for processing key: {image_hash}"
 
 def main():
