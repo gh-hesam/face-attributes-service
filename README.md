@@ -112,7 +112,10 @@ Each .json file looks like:
     ]
     }
 ```
-
+# Results
+![alt text](./images/1.png.png)
+![alt text](./images/2.png.png)
+![alt text](./images/3.png.png)
 # TODO
 - [ ] dockerize the project
 - [ ] add result plotter service
